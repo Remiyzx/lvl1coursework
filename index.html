@@ -443,12 +443,12 @@
             font-weight: 400;
         }
 
-        /* Bottom Banner Section */
+        /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, var(--dark), #34495E);
             color: white;
             text-align: center;
-            padding: 45px 30px;
+            padding: 50px 30px;
             border-radius: 20px;
             margin-top: 20px;
         }
@@ -456,32 +456,32 @@
         .cta-section h2 {
             color: white;
             justify-content: center;
-            margin-bottom: 14px;
         }
 
         .cta-section p {
-            max-width: 750px;
+            max-width: 720px;
             margin: 0 auto;
             font-size: 1.05rem;
             opacity: 0.92;
         }
 
-        .syllabus-badges {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .syllabus-badge {
+        .cta-button {
+            display: inline-block;
             background: var(--accent);
             color: var(--dark);
-            padding: 10px 22px;
+            padding: 15px 40px;
             border-radius: 30px;
-            font-weight: 700;
-            font-size: 0.98rem;
-            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.25);
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.15rem;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 230, 109, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 230, 109, 0.5);
         }
 
         @media (min-width: 900px) {
@@ -731,14 +731,11 @@
             </div>
         </div>
 
-        <!-- Bottom Reference Banner -->
+        <!-- CTA Section -->
         <div class="cta-section">
-            <h2>📚 Syllabus & Vocabulary Reference</h2>
-            <p>Stick strictly to your Level I course materials while writing your dialogue—only up to 3 highlighted extra words are allowed across the entire script!</p>
-            <div class="syllabus-badges">
-                <span class="syllabus-badge">📖 KuaiLeXueHanYu (Lessons 1–4)</span>
-                <span class="syllabus-badge">📘 Textbook: New Practical Chinese Reader 1 (Lessons 1–4)</span>
-            </div>
+            <h2>📚 Optional Extra Vocab & Grammar Reference</h2>
+            <p>Need extra words or grammar ideas? Check out this optional reference guide—open it on an electronic device to view in high resolution and zoom in as needed!</p>
+            <a href="https://canva.link/dd2bpmvk2ihrl32" target="_blank" class="cta-button">Open Vocab & Grammar Reference</a>
         </div>
 
     </div>
