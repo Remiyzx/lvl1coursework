@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandarin Level I Coursework</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --purple: #845EC2;
+            --dark: #2C3E50;
+            --light: #F7F9F9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Hero Banner */
+        header {
+            background: linear-gradient(135deg, rgba(255,107,107,0.88), rgba(78,205,196,0.88)), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 100px 20px 90px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.3rem;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.65rem;
+            font-weight: 600;
+            opacity: 0.98;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 10px 28px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h3.sub-heading {
+            color: var(--dark);
+            font-size: 1.3rem;
+            margin: 28px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Today Class Banner */
+        .today-class-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cc 100%);
+            border-left: 6px solid #f39c12;
+            border-radius: 15px;
+            padding: 25px 28px;
+            margin-bottom: 30px;
+        }
+
+        .today-class-box h3 {
+            color: #d35400;
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+        }
+
+        .today-class-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 14px;
+        }
+
+        .today-class-list li {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: #333;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            box-shadow: 0 3px 8px rgba(243, 156, 18, 0.08);
+        }
+
+        .check-icon {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            flex-shrink: 0;
+        }
+
+        .check-content {
+            font-size: 0.98rem;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 22px;
+        }
+
+        .goal-box {
+            background: #fff8f8;
+            border-left: 6px solid var(--primary);
+            padding: 25px;
+            border-radius: 0 15px 15px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .goal-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,107,107,0.1);
+        }
+
+        .goal-box h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        /* Workflow Stepper */
+        .workflow-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            background: #f4f8fb;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .workflow-step {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--secondary);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .workflow-step span.step-num {
+            background: var(--secondary);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.78rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .workflow-arrow {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* Deadlines Grid */
+        .deadline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+        }
+
+        .deadline-card {
+            border-radius: 16px;
+            padding: 28px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .deadline-video {
+            background: linear-gradient(135deg, #FF6B6B 0%, #ee5253 100%);
+        }
+
+        .deadline-script {
+            background: linear-gradient(135deg, #2e86de 0%, #0abde3 100%);
+        }
+
+        .deadline-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(255,255,255,0.22);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .deadline-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .deadline-card p {
+            font-size: 1.02rem;
+            opacity: 0.96;
+            margin-bottom: 18px;
+        }
+
+        .deadline-btn {
+            display: inline-block;
+            align-self: flex-start;
+            background: white;
+            color: #ee5253;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .deadline-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+        }
+
+        .group-rule-pill {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(255, 255, 255, 0.22);
+            border: 1.5px solid rgba(255, 255, 255, 0.65);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Important Notes (A-F) & Quick Rules */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .note-item {
+            background: #f0fbfa;
+            border-radius: 14px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            border: 1px solid #d7f3f0;
+        }
+
+        .note-letter {
+            background: var(--secondary);
+            color: white;
+            font-weight: 800;
+            min-width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.05rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .note-text {
+            font-size: 1rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .scope-pill-box {
+            background: #f8f9fa;
+            border-radius: 14px;
+            padding: 20px 25px;
+            border-left: 5px solid var(--purple);
+        }
+
+        .scope-pill-box ul {
+            list-style: none;
+        }
+
+        .scope-pill-box li {
+            margin-bottom: 8px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .scope-pill-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .scope-pill-box li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Scene Layout (Image + Text) */
+        .twist-banner {
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(161, 140, 209, 0.3);
+        }
+
+        .scene-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .scene-card:hover {
+            border-color: var(--secondary);
+            transform: scale(1.01);
+        }
+
+        .scene-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .scene-content {
+            padding: 35px;
+            flex: 1;
+        }
+
+        .scene-number {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .scene-content h3 {
+            font-size: 1.45rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .scene-content ul {
+            padding-left: 20px;
+            margin-top: 12px;
+        }
+
+        .scene-content li {
+            margin-bottom: 14px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .vocab-hint {
+            display: block;
+            margin-top: 5px;
+            background: #f0fbfa;
+            border-left: 3px solid var(--secondary);
+            padding: 5px 12px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.92rem;
+            color: #16a085;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Bottom Banner Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark), #34495E);
+            color: white;
+            text-align: center;
+            padding: 45px 30px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .cta-section p {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            opacity: 0.92;
+        }
+
+        .syllabus-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .syllabus-badge {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            box-shadow: 0 4px 12px rgba(255, 230, 109, 0.25);
+        }
+
+        @media (min-width: 900px) {
+            .scene-card {
+                flex-direction: row;
+            }
+            .scene-img {
+                width: 38%;
+                height: auto;
+            }
+            .scene-content {
+                width: 62%;
+            }
+            .scene-card:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎉 Mandarin Level I Coursework</h1>
+        <p>Péngyou, nǐ hǎo! (Hello, Friends!)</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Today Class & Goals Section -->
+        <div class="card">
+            <h2>🎯 Today’s Class & Master Plan</h2>
+            <p style="margin-bottom: 20px; color: #555; font-size: 1.05rem;">No teaching session today—laoshi will still arrive on time, so if your group members are all here, you can definitely start your group brainstorming right away!</p>
+
+            <div class="today-class-box">
+                <h3>😉 Today Class Checklist</h3>
+                <ul class="today-class-list">
+                    <li>
+                        <span class="check-icon">👥</span>
+                        <div class="check-content"><strong>Format:</strong> F2F – drama script writing in group</div>
+                    </li>
+                    <li>
+                        <span class="check-icon">🪑</span>
+                        <div class="check-content"><strong>Seating:</strong> Sit with your group in class</div>
+                    </li>
+                    <li>
+                        <span class="check-icon">💻</span>
+                        <div class="check-content"><strong>Materials:</strong> Bring your laptop, tablet, or printed template <strong>AND</strong> textbook or <em>KuaiLeXueHanYu</em></div>
+                    </li>
+                    <li>
+                        <span class="check-icon">⏱️</span>
+                        <div class="check-content"><strong>Timing:</strong> Can start anytime once your group is ready</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="grid">
+                <div class="goal-box">
+                    <h3>💡 Goal 1: Storyline</h3>
+                    <p>Build a natural conversation around <em>"Péngyou, nǐ hǎo!"</em> covering greetings, family & jobs, likes, and inviting friends out (Lessons 1–4).</p>
+                </div>
+                <div class="goal-box">
+                    <h3>✍️ Goal 2: Script</h3>
+                    <p>Complete at least 1 scene today. Try to finish the whole script because laoshi only checks it in today's class, and no pre-submission reviews are allowed later.</p>
+                </div>
+                <div class="goal-box">
+                    <h3>🎬 Goal 3: Roles</h3>
+                    <p>Assign team roles for upcoming filming and video editing tasks.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow & Deadlines Section -->
+        <div class="card">
+            <h2>🗓️ Project Workflow & Deadlines</h2>
+            
+            <h3 class="sub-heading">🔄 Step-by-Step Workflow</h3>
+            <div class="workflow-container">
+                <div class="workflow-step"><span class="step-num">1</span> WhatsApp Group Formation</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">2</span> Brainstorm</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">3</span> Script Writing</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">4</span> Script Memorization</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">5</span> Video Recording</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">6</span> Video Editing</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">7</span> Video Upload</div>
+                <span class="workflow-arrow">→</span>
+                <div class="workflow-step"><span class="step-num">8</span> Script Submission</div>
+            </div>
+
+            <h3 class="sub-heading">⏰ Important Submission Deadlines</h3>
+            <div class="deadline-grid">
+                <div class="deadline-card deadline-video">
+                    <div>
+                        <span class="deadline-badge">🎬 YouTube Video Submission</span>
+                        <h3>Study Week Monday / WCA 2 (4 Jan 2027)</h3>
+                        <p><strong>Time:</strong> Before 8:00 AM<br><strong>Platform:</strong> Microsoft Form</p>
+                    </div>
+                    <a href="https://forms.cloud.microsoft/r/vBR9nKRH3Z" target="_blank" class="deadline-btn">Submit Video Link Here ↗</a>
+                </div>
+                <div class="deadline-card deadline-script">
+                    <div>
+                        <span class="deadline-badge">📝 Hardcopy Script Submission</span>
+                        <h3>Study Week Monday / WCA 2 (4 Jan 2027)</h3>
+                        <p><strong>Mode:</strong> Submit hardcopy on the day of the WCA 2 assessment (F2F Exam)</p>
+                    </div>
+                    <div class="group-rule-pill">📌 1 Group • 1 Script • 1 Video</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Notes & Script Rules Section -->
+        <div class="card">
+            <h2>📌 Some Important Notes & Script Rules</h2>
+            
+            <div class="notes-grid">
+                <div class="note-item">
+                    <div class="note-letter">A</div>
+                    <div class="note-text">Make sure the content matches the topic (<em>Péngyou, nǐ hǎo!</em>).</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">B</div>
+                    <div class="note-text">The number of scenes must match the number of group members (e.g., a group of 3 must have at least 3 scenes).</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">C</div>
+                    <div class="note-text">Not every member has to appear in every scene, but each person must speak at least <strong>15 valid sentences</strong>.</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">D</div>
+                    <div class="note-text">Only a complete sentence (S + V + O or S + adv + A) with <strong>3 or more Pinyin syllables</strong> counts as one line.</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">E</div>
+                    <div class="note-text">Please highlight any extra vocabulary used (<strong>maximum 3 extra words</strong> allowed; proper nouns are exempt).</div>
+                </div>
+                <div class="note-item">
+                    <div class="note-letter">F</div>
+                    <div class="note-text">Write or type everything in the template and submit a hard copy at the end.</div>
+                </div>
+            </div>
+
+            <div class="scope-pill-box">
+                <ul>
+                    <li><strong>Video Length & Subtitles:</strong> Must be 3–4 minutes total (including opening & closing credits &le; 1 min), with English or Malay subtitles only (no Pinyin subtitles).</li>
+                    <li><strong>Syllabus Scope:</strong> Use <em>KuaiLeXueHanYu</em> Lessons 1–4 and Textbook Lessons 1–4 only (maximum 3 highlighted extra words allowed).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Storyline Outline Section -->
+        <h2>🎬 Suggested Storyline Outline</h2>
+        
+        <div class="twist-banner">
+            🚀 Creative Story Flow: Friends greet each other on campus, introduce a new classmate, chat about their busy families and favorite hobbies, and invite everyone out for a fun hangout!
+        </div>
+
+        <!-- Scene 1 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Students greeting on campus" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 01</div>
+                <h3>Greeting & Basic Self-Introduction</h3>
+                <ul>
+                    <li>
+                        Greeting / Saying hello
+                        <span class="vocab-hint">e.g. nǐ hǎo, nǐ hǎo ma ...</span>
+                    </li>
+                    <li>
+                        Self-introduction (name)
+                        <span class="vocab-hint">e.g. jiào, shénme, zhè, nà, shéi ...</span>
+                    </li>
+                    <li>
+                        Nationality / Where you are from
+                        <span class="vocab-hint">e.g. nǎ, guó, rén, ma, ne ...</span>
+                    </li>
+                    <li>
+                        Simple identity info
+                        <span class="vocab-hint">e.g. shì, Mǎláixīyà Shābā Dàxué, xuéyuàn, xuésheng, xuéxí, Hànyǔ ...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 2 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" alt="Friends chatting about family and jobs" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 02</div>
+                <h3>Asking About Family & Work</h3>
+                <ul>
+                    <li>
+                        Family members
+                        <span class="vocab-hint">e.g. wàipó, nǎinai, bàba, māma, gēge, jiějie, dìdi, mèimei, máng ...</span>
+                    </li>
+                    <li>
+                        Asking about job / occupation
+                        <span class="vocab-hint">e.g. xuésheng, lǎoshī, yīshēng, jìzhě ...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 3 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Friends talking about food, drinks and hobbies" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 03</div>
+                <h3>Interests & Likes</h3>
+                <ul>
+                    <li>
+                        Asking about hobbies
+                        <span class="vocab-hint">e.g. xǐhuan, kàn diànyǐng, chànggē ...</span>
+                    </li>
+                    <li>
+                        Saying likes / dislikes
+                        <span class="vocab-hint">e.g. xǐhuan, bù xǐhuan, hē kāfēi/kělè, chī hànbǎo/píngguǒ ...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Scene 4 -->
+        <div class="scene-card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Friends inviting each other to hang out" class="scene-img">
+            <div class="scene-content">
+                <div class="scene-number">SCENE 04</div>
+                <h3>Inviting Someone to Go Somewhere or Do Something</h3>
+                <ul>
+                    <li>
+                        Inviting to go somewhere
+                        <span class="vocab-hint">e.g. yào, qù, shāngchǎng, cāntīng, sùshè, dàxué ...</span>
+                    </li>
+                    <li>
+                        Inviting to do an activity
+                        <span class="vocab-hint">e.g. qù, kàn diànyǐng, chànggē, hē kāfēi, chī hànbǎo ...</span>
+                    </li>
+                    <li>
+                        Making simple friendly comments & Ending politely
+                        <span class="vocab-hint">e.g. rènshi, gāoxìng ...</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Reference Banner -->
+        <div class="cta-section">
+            <h2>📚 Syllabus & Vocabulary Reference</h2>
+            <p>Stick strictly to your Level I course materials while writing your dialogue—only up to 3 highlighted extra words are allowed across the entire script!</p>
+            <div class="syllabus-badges">
+                <span class="syllabus-badge">📖 KuaiLeXueHanYu (Lessons 1–4)</span>
+                <span class="syllabus-badge">📘 Textbook: New Practical Chinese Reader 1 (Lessons 1–4)</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
